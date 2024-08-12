@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RRSHOP Kids - الصفحة الرئيسية</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(45deg, #FFD700, #1E90FF); /* Adapte les couleurs au logo */
+            color: #333;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: transparent;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        header .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header img {
+            width: 70px;
+            margin-bottom: 10px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.5rem;
+            color: #FFD700; /* Jaune vif */
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .product-images {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .product-images img {
+            width: 150px;
+            border-radius: 10px;
+        }
+
+        .product-images .image-caption {
+            text-align: center;
+            margin-top: 5px;
+            font-weight: bold;
+        }
+
+        .delivery {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #333;
+            padding: 10px;
+            margin-top: 10px;
+            font-size: 1rem;
+            font-weight: bold;
+            text-align: center;
+            position: relative;
+        }
+
+        .delivery img {
+            width: 30px;
+            margin-right: 10px;
+            animation: delivery-animation 2s infinite;
+        }
+
+        @keyframes delivery-animation {
+            0% {transform: translateX(0);}
+            50% {transform: translateX(10px);}
+            100% {transform: translateX(0);}
+        }
+
+        .colors-section {
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            text-align: center;
+            background-color: #FFE4B5; /* Adapte la couleur au logo */
+        }
+
+        .colors-section h2 {
+            margin-bottom: 20px;
+            color: #000; /* Noir pour un contraste sur le fond */
+        }
+
+        .color-option {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .color-item {
+            text-align: center;
+        }
+
+        .color-item img {
+            width: 120px;
+            height: auto;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: border-color 0.3s ease;
+            border-radius: 10px;
+        }
+
+        .color-item img:hover {
+            border-color: #1E90FF; /* Bleu Dodger pour le survol */
+        }
+
+        /* Custom styles for product descriptions */
+        .color-description {
+            font-size: 1rem;
+            margin-top: 5px;
+            font-weight: bold;
+        }
+
+        .color-description.green {
+            color: #006400; /* Vert foncé */
+        }
+
+        .color-description.yellow {
+            color: #FFD700; /* Jaune vif */
+        }
+
+        .color-description.blue {
+            color: #1E90FF; /* Bleu Dodger */
+        }
+
+        .color-description.purple {
+            color: #800080; /* Violet */
+        }
+
+        .color-description.dark-blue {
+            color: #00008B; /* Bleu foncé */
+        }
+
+        .color-description.pink {
+            color: #FF1493; /* Rose profond */
+        }
+
+        /* Styles for the moving button and WhatsApp icon */
+        .flex-container {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            z-index: 1000;
+        }
+
+        .order-button {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px 20px; /* Taille réduite */
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1rem; /* Taille du texte réduite */
+            font-weight: bold;
+            animation: whatsappPulse 1.5s infinite;
+            text-align: center;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .order-button:hover {
+            background-color: #0056b3;
+        }
+
+        @keyframes whatsappPulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .whatsapp-icon {
+            animation: whatsappPulse 1.5s infinite;
+        }
+
+        .whatsapp-icon img {
+            width: 50px;
+            height: 50px;
+        }
+
+        .offer {
+            background-color: #FFD700; /* Jaune vif */
+            color: #FF6347;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .offer .details {
+            margin-top: 10px;
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        .offer .details ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .offer .details ul li {
+            margin-bottom: 5px;
+        }
+
+        .offer .details .highlighted {
+            color: red;
+            text-decoration: underline;
+        }
+
+        .offer-red {
+            background-color: #FF6347;
+            color: white;
+            animation: glowing 1.5s infinite;
+        }
+
+        .offer-red .price {
+            text-decoration: line-through;
+            color: #FFD700;
+        }
+
+        @keyframes glowing {
+            0% { box-shadow: 0 0 10px #FF0000; }
+            50% { box-shadow: 0 0 30px #FF0000; }
+            100% { box-shadow: 0 0 10px #FF0000; }
+        }
+
+        .form-section {
+            background: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+            text-align: center;
+            color: #333;
+        }
+
+        .form-section h2 {
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            color: #333;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        form label {
+            display: block;
+            text-align: left;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        form input, form select, form button {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            font-size: 16px;
+            border-radius: 50px;
+            border: 1px solid #1E90FF; /* Bordure bleue pour correspondre au logo */
+        }
+
+        form input, form select {
+            background-color: #fff;
+            color: #333;
+        }
+
+        form button {
+            background-color: #1E90FF;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        form button:hover {
+            background-color: #fff;
+            color: #1E90FF;
+            border: 1px solid #1E90FF;
+        }
+
+        .visit-site-section {
+            color: #333;
+            padding: 20px;
+            margin-top: 20px;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .visit-site-section a.site-button {
+            background-color: #FF6347;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: bold;
+            display: inline-block;
+            animation: whatsappPulse 1.5s infinite;
+        }
+
+        .visit-site-section a.site-button:hover {
+            background-color: #cc4f39;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: transparent;
+            color: #fff;
+            margin-top: 40px;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .hero img {
+                max-width: 100%;
+            }
+
+            .color-option {
+                justify-content: space-around;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-content">
+            <img src="logo.png" alt="Logo">
+            <h1>شري لولدك محفظة بجودة مزيانة وباللون لي كيعجبو، باش تشجعو يرجع لقرايتو بثقة في النفس 😊📚🎒 وسط صحابو</h1>
+        </div>
+        <!-- Intégration des images de produit avec titres en arabe -->
+        <div class="product-images">
+            <div>
+                <img src="HTB1Sp9BaDHuK1RkSndVq6xVwpXaR.webp" alt="عجلات ذات جودة عالية">
+                <div class="image-caption">عجلات ذات جودة عالية</div>
+            </div>
+            <div>
+                <img src="HTB1H_CEaELrK1Rjy0Fjq6zYXFXaE.webp" alt="بدون ضغط مناسب للسفر">
+                <div class="image-caption">بدون ضغط مناسب للسفر</div>
+            </div>
+            <div>
+                <img src="HTB1r4qCazzuK1RjSsppq6xz0XXa7.webp" alt="حامل للأقدام">
+                <div class="image-caption">حامل للأقدام</div>
+            </div>
+        </div>
+        
+        <!-- Section des produits avancée juste après les images de produits -->
+        <div class="container">
+            <section class="colors-section" style="background-color: #FFE4B5; padding: 20px; border-radius: 10px; margin-top: 20px; text-align: center;">
+                <h2 style="color: #000;">اختر اللون الذي يحبه طفلك</h2>
+                <div class="color-option">
+                    <div class="color-item">
+                        <img src="1.jpeg" alt="حقيبة خضراء">
+                        <div class="color-description green">حقيبة خضراء</div>
+                    </div>
+                    <div class="color-item">
+                        <img src="2.jpeg" alt="حقيبة صفراء">
+                        <div class="color-description yellow">حقيبة صفراء</div>
+                    </div>
+                    <div class="color-item">
+                        <img src="3.jpeg" alt="حقيبة زرقاء">
+                        <div class="color-description blue">حقيبة زرقاء</div>
+                    </div>
+                    <div class="color-item">
+                        <img src="4.jpeg" alt="حقيبة بنفسجية">
+                        <div class="color-description purple">حقيبة بنفسجية</div>
+                    </div>
+                    <div class="color-item">
+                        <img src="5.jpeg" alt="حقيبة زرقاء داكنة">
+                        <div class="color-description dark-blue">حقيبة زرقاء داكنة</div>
+                    </div>
+                    <div class="color-item">
+                        <img src="6.jpeg" alt="حقيبة وردية">
+                        <div class="color-description pink">حقيبة وردية</div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Autres sections après -->
+            <div class="delivery">
+                <img src="delivery-icon.png" alt="Delivery">
+                <span>التوصيل مجاني لجميع المدن المغربية في أقل من 48 ساعة</span>
+            </div>
+            <div class="cash-on-delivery">
+                <img src="cash-icon.png" alt="Cash on Delivery">
+                <span>الدفع عند التسليم</span>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Offres -->
+    <section class="offer" style="background-color: #FFD700; color: #FF6347; padding: 20px; border-radius: 10px; margin-top: 20px; text-align: center; font-size: 1.5rem; font-weight: bold; width: 100%; box-sizing: border-box;">
+        استفيدوا من <span dir="ltr">Pack</span> مكوّن من 3 قطع <span style="text-decoration: underline;">( محفظة بعجلات, مقلمة, حقيبة غداء )</span> مقابل 650 درهم
+    </section>
+    <section class="offer-red" style="background-color: #FF6347; color: #f1eeed; padding: 20px; border-radius: 10px; margin-top: 20px; text-align: center; font-size: 1.5rem; font-weight: bold; width: 100%; box-sizing: border-box;">
+        إذا اشتريت 2 <span dir="ltr">Pack</span>  ستستفيد من خصم 100 درهم 
+    </section>
+    
+    <!-- Section "Visitez notre site" -->
+    <div class="visit-site-section">
+        <p>إذا كنت ترغب في معرفة المزيد عن منتجاتنا الخاصة باحتياجات أطفالك، وخاصة نماذج أخرى من المحافظ</p>
+        <a href="https://rrshop-kids.myshopyan.com" target="_blank" class="site-button">زوروا موقعنا الآن</a>
+    </div>
+
+    <div class="container">
+        <section class="form-section" id="order-form">
+            <h2>إرسال طلبك</h2>
+            <form id="orderForm" action="https://formspree.io/f/xanwjjbk" method="POST">
+                <label for="name">الاسم الكامل </label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="quantity">كم من محفظة تريد؟</label>
+                <input type="number" id="quantity" name="quantity" min="1" required oninput="updateColorSelectors()">
+
+                <div id="colorSelectors"></div>
+
+                <label for="phone">رقم الهاتف </label>
+                <input type="text" id="phone" name="phone" required>
+                
+                <label for="address">عنوان التوصيل</label>
+                <input type="text" id="address" name="address" required>
+                
+                <button type="submit">إرسال الطلب</button>
+            </form>
+        </section>
+    </div>
+
+    <footer>
+        <p>جميع الحقوق محفوظة &copy; 2024 RRSHOP Kids</p>
+    </footer>
+
+    <!-- Icône WhatsApp avec le bouton "اطلب الآن" -->
+    <div class="flex-container">
+        <div class="whatsapp-icon">
+            <a href="https://wa.me/+212658038117" target="_blank">
+                <img src="whatsapp-icon.png" alt="WhatsApp">
+            </a>
+        </div>
+        <a href="#order-form" class="order-button">اطلب الآن</a>
+    </div>
+
+    <script>
+        function updateColorSelectors() {
+            const quantity = document.getElementById('quantity').value;
+            const colorSelectors = document.getElementById('colorSelectors');
+            colorSelectors.innerHTML = ''; // Clear previous selectors
+
+            for (let i = 1; i <= quantity; i++) {
+                const label = document.createElement('label');
+                label.setAttribute('for', `color${i}`);
+                label.textContent = `اختر اللون للمحفظة ${i}:`;
+
+                const select = document.createElement('select');
+                select.setAttribute('id', `color${i}`);
+                select.setAttribute('name', `color${i}`);
+                select.setAttribute('required', true);
+
+                const colors = [
+                    { value: 'Green', text: 'حقيبة خضراء' },
+                    { value: 'Yellow', text: 'حقيبة صفراء' },
+                    { value: 'Blue', text: 'حقيبة زرقاء' },
+                    { value: 'Purple', text: 'حقيبة بنفسجية' },
+                    { value: 'Dark Blue', text: 'حقيبة زرقاء داكنة' },
+                    { value: 'Pink', text: 'حقيبة وردية' }
+                ];
+
+                colors.forEach(color => {
+                    const option = document.createElement('option');
+                    option.value = color.value;
+                    option.textContent = color.text;
+                    select.appendChild(option);
+                });
+
+                colorSelectors.appendChild(label);
+                colorSelectors.appendChild(select);
+            }
+        }
+
+        // Rétablir la couleur du bouton après clic
+        const orderButton = document.querySelector('.order-button');
+        orderButton.addEventListener('click', function() {
+            setTimeout(function() {
+                orderButton.style.backgroundColor = '#007BFF';
+                orderButton.style.color = '#fff';
+            }, 100);
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"></script>
+
+</body>
+</html>
